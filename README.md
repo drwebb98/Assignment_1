@@ -29,7 +29,7 @@ Running the programme will produce an animation of the agents interacting with t
 
 ***
 
-This software can be run within a python reader, or directly from a command prompt.  
+This software can be run within a python interpreter, or directly from a command prompt.  
 If run directly within a command prompt, the following variables can be inputted as follows:
 
 `python model.py x y z`
@@ -41,13 +41,20 @@ where
 
 ***
 
+The user inputs for `num_of_agents`, `num_of_iterations` and `neighbourhood` must be numeric values.  
+The input for `num_of_agents` must also be <= 100.  
+If they are not then error messages will alert the user to input an integer value and prompt them to try again until an acceptable value is provided. These tests are present to stop the programme from breaking.
+
+***
+
 Known Issues:
 
-* The program may break if the number of agents inputted is greater than 100. This is due to there only being 100 coordinates stored in the original external data source.
+* The programme is restricted to <= 100 agents and may break if the number of agents inputted is greater than 100. This is due to there only being 100 coordinates stored in the original external data source. The programme currently restricts users from inputting values outside of this, but only if done within a python interpreter (the programme may still break if unaccepted inputs are made directly in the command prompt).
 
 ***
 
 Further Development:
 
 * Fix so that more than 100 agents can be used by creating random points for any agents other than the 100 already assigned coordinates.
+* Update code for command prompt input to reduce the risk of the programme breaking if the number of agents exceeds 100 or if the inputs are not integers.
 * Use `get()` and `set()` to protect the variables.
