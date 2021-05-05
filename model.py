@@ -47,7 +47,7 @@ try:
     print("Neighbourhood Distance: ", neighbourhood)
 
 
-# Input from python user input
+# Input from python interpreter
 except:
     
     while True:
