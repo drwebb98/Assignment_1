@@ -1,10 +1,13 @@
 # Assignment_1 README
 **Online Portfolio Assignment 1 GEOG5003M**
 
+**[model.py](https://github.com/drwebb98/Assignment_1/blob/main/model.py) is the core programme.**  
+**[agentsframework.py](https://github.com/drwebb98/Assignment_1/blob/main/agentsframework.py) contains the `Agent` class.**
 
-This software takes in coordinate data from an external source and assigns them to agents. These agents will then move around an environment randomly, interacting with the environent as they 'eat away' from it.
+***
 
-External Data Source: https://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html
+This software takes in coordinate data from an [external source](https://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html) and assigns them to agents. These agents will then move around [an environment](https://github.com/drwebb98/Assignment_1/blob/main/in.txt) randomly, interacting with the environent as they 'eat away' from it.
+
 
 When the software is run, the user will be asked to input integer values for the number of agents, the number of iterations and the neighbourhood distance (see below).  
 Running the programme will produce an animation of the agents interacting with the environment within matplotlib, presented within a GUI created using tkinter.
