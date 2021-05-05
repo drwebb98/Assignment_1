@@ -41,7 +41,7 @@ where
 
 ***
 
-The user inputs for `num_of_agents`, `num_of_iterations` and `neighbourhood` must be numeric values.  
+The user inputs for `num_of_agents`, `num_of_iterations` and `neighbourhood` must be positive integer values.  
 The input for `num_of_agents` must also be <= 100.  
 If they are not then error messages will alert the user to input an integer value and prompt them to try again until an acceptable value is provided. These tests are present to stop the programme from breaking.
 
