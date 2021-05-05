@@ -61,3 +61,7 @@ Further Development:
 * Fix so that more than 100 agents can be used by creating random points for any agents other than the 100 already assigned coordinates.
 * Update code for command prompt input to reduce the risk of the programme breaking if the number of agents exceeds 100 or if the inputs are not integers.
 * Use `get()` and `set()` to protect the variables.
+
+***
+
+This software is available under the MIT License. See [LICENSE.txt](https://github.com/drwebb98/Assignment_1/blob/main/LICENSE.txt) for more information.
