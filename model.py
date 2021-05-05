@@ -18,10 +18,7 @@ soup = bs4.BeautifulSoup(content, 'html.parser')
 tdsy = soup.find_all(attrs={"class" : "y"})
 tdsx = soup.find_all(attrs={"class" : "x"})
 tdsz = soup.find_all(attrs={"class" : "z"})
-print(tdsy)
-print("")
-print(tdsx)
-print("")
+
 
 
 num_of_agents = []
@@ -32,9 +29,11 @@ rowlist = []
 agents = []
 
 
-# Set up user inputs for number of agents, number of iterations and
-# neighbourhood distance either directly from the command line or from
-# user input
+'''Set up user inputs for number of agents, number of iterations and 
+neighbourhood distance either directly from the command line or from user 
+input'''
+
+# Input from the command line
 try:
 
     print(sys.argv)                                         
@@ -46,14 +45,52 @@ try:
     print("Number of Agents: ", num_of_agents)
     print("Number of Iterations: ", num_of_iterations)
     print("Neighbourhood Distance: ", neighbourhood)
-    
+
+
+# Input from python user input
 except:
-
-    num_of_agents = int(input("Type Number of Agents "))
-    num_of_iterations = int(input("Type Number of Iterations "))
-    neighbourhood = int(input("Type Neighbourhood Distance "))
-
-
+    
+    while True:
+        try:
+            num_of_agents = int(input("Type Number of Agents "))
+            if num_of_agents > 100:
+                raise ValueError
+            if num_of_agents < 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("")
+            print("**ERROR** Please enter a positive integer value between " +
+                  "0 and 100 for the number of agents")
+        
+    while True:
+        try:
+            num_of_iterations = int(input("Type Number of Iterations "))
+            if num_of_iterations < 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("")
+            print("**ERROR** Please enter a positive integer value for the " + 
+                  "number of iterations")
+         
+    while True:
+            try:
+                neighbourhood = int(input("Type Neighbourhood Distance "))
+                if neighbourhood < 0:
+                    raise ValueError
+                break
+            except ValueError:
+                print("")
+                print("**ERROR** Please enter a positive integer value for " +
+                      "the neighbourhood distance")        
+                
+    print("")
+    print("")            
+    print("Number of Agents: ", num_of_agents)
+    print("Number of Iterations: ", num_of_iterations)
+    print("Neighbourhood Distance: ", neighbourhood)
+        
 
 
 # Creation of environment inputted from another source
@@ -103,11 +140,17 @@ def run():
     animation = matplotlib.animation.FuncAnimation(fig, update, 
     interval=20, repeat=False, frames=num_of_iterations)
     canvas.draw()
+    label_widget = tkinter.Label(root, text="Agents interacting with " +
+    "environment")
+    label_widget.pack()
 
 
 # Make GUI using tkinter 
 root = tkinter.Tk()
 root.wm_title("Model")
+label_widget = tkinter.Label(root, text="Run the model by selecting it " + 
+"from the menu above.")
+label_widget.pack()
 menu_bar = tkinter.Menu(root)
 root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
@@ -119,11 +162,4 @@ canvas._tkcanvas.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 tkinter.mainloop()
 
 
-'''
-f2 = open('dataout.csv', 'w', newline='')
-writer = csv.writer(f2)
-for row in data:
-    writer.writerow(row) # List of values.
-f2.close()
 
-'''
